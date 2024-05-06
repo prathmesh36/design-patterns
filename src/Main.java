@@ -27,6 +27,18 @@ public class Main {
                 new singleton.PaymentHolidayInitializer(Map.of("US", Arrays.asList("04-JUL-2024", "01-MAY-2024"),
                         "IND",  Arrays.asList("05-SEP-2024", "15-NOV-2024"))).displayPaymentHolidays();
             }
+            case "Adapter" -> {
+                String jsonStrInstruction = "{\"accountNumber\":\"B23456789\",\"financialInstitutionIdentifier\":\"BOFA1234\",\"financialInstitutionName\":\"Bank of America\",\"amount\":\"100.00\"}";
+                new adapter.PaymentProcessor(jsonStrInstruction, true).displayPayment();
+                String xmlStrInstruction = "<Payment>\n" +
+                        "    <accountNumber>J23456789</accountNumber>\n" +
+                        "    <financialInstitutionIdentifier>JPM1234</financialInstitutionIdentifier>\n" +
+                        "    <financialInstitutionName>JPMC</financialInstitutionName>\n" +
+                        "    <amount>1000.00</amount>\n" +
+                        "</Payment>";
+                new adapter.PaymentProcessor(xmlStrInstruction, false).displayPayment();
+
+            }
         }
     }
 }
