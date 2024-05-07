@@ -19,15 +19,6 @@ public class AccountImpl implements Account{
         this.balance = balance;
     }
 
-    @Override
-    public int getAge() {
-        return 18;
-    }
-
-    @Override
-    public void setAge(int age) {
-
-    }
 
     @Override
     public boolean isActive() {
@@ -72,6 +63,19 @@ public class AccountImpl implements Account{
         this.bankIdentificationCode = bankIdentificationCode;
     }
 
+
+    // Age not relevant
+    @Override
+    public int getAge() {
+        return 18;
+    }
+
+    @Override
+    public void setAge(int age) {
+
+    }
+
+    // term deposit not relevant
     @Override
     public void setTermDeposits(Map<String, List<Double>> termDeposits) {
         System.out.println("Operation Not Supported: Please make term deposits via tour savings accnount");
@@ -81,5 +85,6 @@ public class AccountImpl implements Account{
     public Map<String, List<Double>> getTermDeposits() {
         return null;
     }
+
 
 }
