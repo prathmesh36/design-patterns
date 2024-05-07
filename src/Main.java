@@ -1,4 +1,8 @@
 
+import bridge.AccountProcessor;
+import bridge.constants.Account;
+import bridge.constants.Country;
+
 import java.util.Arrays;
 import java.util.Map;
 
@@ -37,7 +41,13 @@ public class Main {
                         "    <amount>1000.00</amount>\n" +
                         "</Payment>";
                 new adapter.PaymentProcessor(xmlStrInstruction, false).displayPayment();
-
+            }
+            case "Bridge" -> {
+                new AccountProcessor("123456789","HDFC123", 15, Country.IND, Account.SAVINGS);
+                new AccountProcessor("123456789","HDFC123", 15, Country.IND, Account.CHECKING);
+                new AccountProcessor("123456789","JPMC123", 15, Country.US, Account.SAVINGS);
+                new AccountProcessor("123456789","JPMC123", 15, Country.US, Account.CHECKING);
+                new AccountProcessor("123456789","JPMC123", 19, Country.US, Account.CHECKING);
             }
         }
     }
