@@ -1,7 +1,7 @@
 
 import bridge.AccountProcessor;
-import bridge.constants.Account;
-import bridge.constants.Country;
+import bridge.constant.Account;
+import bridge.constant.Country;
 
 import java.util.Arrays;
 import java.util.Map;

@@ -78,7 +78,7 @@ public class AccountImpl implements Account{
     // term deposit not relevant
     @Override
     public void setTermDeposits(Map<String, List<Double>> termDeposits) {
-        System.out.println("Operation Not Supported: Please make term deposits via tour savings accnount");
+        System.out.println("Operation Not Supported: Please make term deposits via your savings account");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package bridge.dto.countryProcessor;
+package bridge.service.countryProcessor;
 
 public interface CommonProcessor {
     void debit(Double amount);

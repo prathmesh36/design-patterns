@@ -1,4 +1,4 @@
-package bridge.dto.countryProcessor;
+package bridge.service.countryProcessor;
 
 import bridge.dto.account.Account;
 

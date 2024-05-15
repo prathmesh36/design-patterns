@@ -1,12 +1,12 @@
 package bridge;
 
 
-import bridge.constants.Account;
-import bridge.constants.Country;
+import bridge.constant.Account;
+import bridge.constant.Country;
 import bridge.dto.account.CheckingAccount;
 import bridge.dto.account.SavingAccount;
-import bridge.dto.countryProcessor.INDProcessorImpl;
-import bridge.dto.countryProcessor.USProcessorImpl;
+import bridge.service.countryProcessor.INDProcessorImpl;
+import bridge.service.countryProcessor.USProcessorImpl;
 
 public class AccountProcessor {
 

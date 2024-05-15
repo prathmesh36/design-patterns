@@ -1,4 +1,4 @@
-package bridge.constants;
+package bridge.constant;
 
 public enum Country {
     US,
