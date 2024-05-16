@@ -1,6 +1,5 @@
 package composite.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CompositeTransaction extends TransactionImpl{
