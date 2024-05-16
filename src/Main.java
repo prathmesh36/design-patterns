@@ -2,8 +2,14 @@
 import bridge.AccountProcessor;
 import bridge.constant.Account;
 import bridge.constant.Country;
+import composite.LedgerProcessor;
+import composite.dto.CompositeTransaction;
+import composite.dto.CreditTransaction;
+import composite.dto.DebitTransaction;
+import composite.dto.TransactionImpl;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -48,6 +54,16 @@ public class Main {
                 new AccountProcessor("123456789","JPMC123", 15, Country.US, Account.SAVINGS);
                 new AccountProcessor("123456789","JPMC123", 15, Country.US, Account.CHECKING);
                 new AccountProcessor("123456789","JPMC123", 19, Country.US, Account.CHECKING);
+            }
+            case "Composite" -> {
+                CompositeTransaction compositeTransactionBene1 = new CompositeTransaction( "Bene1",Arrays.asList(new DebitTransaction(25), new CreditTransaction(30)));
+                CompositeTransaction compositeTransactionBene2 = new CompositeTransaction( "Bene2",Arrays.asList(new DebitTransaction(100), new CreditTransaction(30)));
+                List<TransactionImpl> allTransactions = Arrays.asList( compositeTransactionBene1, compositeTransactionBene2, new DebitTransaction(30));
+                new LedgerProcessor("Overall", allTransactions).getBalance();
+                compositeTransactionBene1 = new CompositeTransaction( "Bene1",Arrays.asList(new DebitTransaction(25), new CreditTransaction(130)));
+                compositeTransactionBene2 = new CompositeTransaction( "Bene2",Arrays.asList(new DebitTransaction(10), new CreditTransaction(30)));
+                allTransactions = Arrays.asList( compositeTransactionBene1, compositeTransactionBene2, new DebitTransaction(30));
+                new LedgerProcessor("Overall", allTransactions).getBalance();
             }
         }
     }
