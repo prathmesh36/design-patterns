@@ -65,6 +65,9 @@ public class Main {
                 allTransactions = Arrays.asList( compositeTransactionBene1, compositeTransactionBene2, new DebitTransaction(30));
                 new LedgerProcessor("Overall", allTransactions).getBalance();
             }
+            case "Decorator" -> {
+                new decorator.PaymentProcessor("23789145", "021000021", "JPMC","14.23").displayPayment();
+            }
         }
     }
 }
