@@ -4,10 +4,10 @@ public class INDPayment extends Payment {
 
 
     public INDPayment(Builder builder){
-        setAccountNumber(builder.accountNumber);
-        setAmount(builder.amount);
-        setFinancialInstitutionIdentifier(builder.financialInstitutionIdentifier);
-        setBankNameFromFinancialInstitutionIdentifier(builder.financialInstitutionIdentifier);
+        setAccountNumber(builder.getAccountNumber());
+        setAmount(builder.getAmount());
+        setFinancialInstitutionIdentifier(builder.getFinancialInstitutionIdentifier());
+        setBankNameFromFinancialInstitutionIdentifier(builder.getFinancialInstitutionIdentifier());
     }
 
 

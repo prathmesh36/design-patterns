@@ -7,6 +7,6 @@ public class DebitTransaction extends TransactionImpl{
 
     @Override
     public double getTotal(){
-        return -super.amount;
+        return -super.getAmount();
     }
 }

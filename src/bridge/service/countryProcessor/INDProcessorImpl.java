@@ -19,8 +19,8 @@ public class INDProcessorImpl extends CommonProcessorImpl{
     @Override
     public void showAccountDetails(){
         super.showAccountDetails();
-        if(account.getTermDeposits() != null) {
-            System.out.println("Fixed Deposits: " + account.getTermDeposits().toString());
+        if(getAccount().getTermDeposits() != null) {
+            System.out.println("Fixed Deposits: " + getAccount().getTermDeposits().toString());
         }
         System.out.println("---------------------------------------");
     }

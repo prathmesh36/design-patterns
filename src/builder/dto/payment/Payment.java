@@ -4,10 +4,10 @@ package builder.dto.payment;
 abstract public class Payment {
 
     public static class Builder{
-        String accountNumber;
-        String financialInstitutionIdentifier;
-        String amount;
-        String countryCode;
+        private String accountNumber;
+        private String financialInstitutionIdentifier;
+        private String amount;
+        private String countryCode;
 
         //Account Number is Mandatory
         public Builder(String accountNumber){
@@ -37,12 +37,44 @@ abstract public class Payment {
                 default -> throw new Exception();
             };
         }
+
+        public String getAccountNumber() {
+            return accountNumber;
+        }
+
+        public void setAccountNumber(String accountNumber) {
+            this.accountNumber = accountNumber;
+        }
+
+        public String getFinancialInstitutionIdentifier() {
+            return financialInstitutionIdentifier;
+        }
+
+        public void setFinancialInstitutionIdentifier(String financialInstitutionIdentifier) {
+            this.financialInstitutionIdentifier = financialInstitutionIdentifier;
+        }
+
+        public String getAmount() {
+            return amount;
+        }
+
+        public void setAmount(String amount) {
+            this.amount = amount;
+        }
+
+        public String getCountryCode() {
+            return countryCode;
+        }
+
+        public void setCountryCode(String countryCode) {
+            this.countryCode = countryCode;
+        }
     }
 
-    String accountNumber;
-    String financialInstitutionIdentifier;
-    String financialInstitutionName;
-    String amount;
+    private String accountNumber;
+    private String financialInstitutionIdentifier;
+    private String financialInstitutionName;
+    private String amount;
 
     public abstract void setBankNameFromFinancialInstitutionIdentifier(String financialInstitutionIdentifier);
 

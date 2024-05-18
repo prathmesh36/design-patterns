@@ -1,17 +1,15 @@
 package abstractFactory.dto.payment;
 
-import abstractFactory.dto.payment.Payment;
-
 public class USPayment extends Payment {
 
     public USPayment(String accountNumber, String financialInstitutionIdentifier) {
-        this.accountNumber = accountNumber;
-        this.financialInstitutionIdentifier = financialInstitutionIdentifier;
+        setAccountNumber(accountNumber);
+        setFinancialInstitutionIdentifier(financialInstitutionIdentifier);
     }
 
     @Override
     public void setBankNameFromFinancialInstitutionIdentifier() {
-        setFinancialInstitutionName(getBankCode(this.financialInstitutionIdentifier));
+        setFinancialInstitutionName(getBankCode(getFinancialInstitutionIdentifier()));
     }
 
     private static String getBankCode(String routingNumber) {

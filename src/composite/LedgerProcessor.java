@@ -6,7 +6,7 @@ import composite.dto.TransactionImpl;
 import java.util.List;
 
 public class LedgerProcessor {
-    CompositeTransaction compositeTransaction;
+    private CompositeTransaction compositeTransaction;
 
     public LedgerProcessor(String referenceId, List<TransactionImpl> transactions){
         this.compositeTransaction = new CompositeTransaction(referenceId, transactions);

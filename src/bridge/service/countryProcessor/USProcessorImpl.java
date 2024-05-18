@@ -19,11 +19,11 @@ public class USProcessorImpl extends CommonProcessorImpl{
 
     @Override
     public boolean openAccount(String accountNo, String bankIdentificationCode, int age) {
-        this.account.setAge(age);
-        if(this.account.getAge() >= 18){
-            this.account.setAccountNo(accountNo);
-            this.account.setBankIdentificationCode(bankIdentificationCode);
-            this.account.activate();
+        this.getAccount().setAge(age);
+        if(this.getAccount().getAge() >= 18){
+            this.getAccount().setAccountNo(accountNo);
+            this.getAccount().setBankIdentificationCode(bankIdentificationCode);
+            this.getAccount().activate();
             return true;
         }else{
             System.out.println("Operation cannot be performed: Age should be greater than 18 for a checking account");
@@ -34,8 +34,8 @@ public class USProcessorImpl extends CommonProcessorImpl{
     @Override
     public void showAccountDetails(){
         super.showAccountDetails();
-        if(account.getTermDeposits() != null){
-            System.out.println("Certificate of Deposits: " + account.getTermDeposits().toString());
+        if(getAccount().getTermDeposits() != null){
+            System.out.println("Certificate of Deposits: " + getAccount().getTermDeposits().toString());
         }
         System.out.println("---------------------------------------");
 

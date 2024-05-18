@@ -3,11 +3,11 @@ package decorator;
 import decorator.dto.*;
 
 public class PaymentProcessor {
-    String paymentMessage;
-    String paymentMessageCompressed;
-    String paymentMessageEncoded;
-    String paymentMessageCompressedEncoded;
-    String paymentMessageEncodedCompressed;
+    private String paymentMessage;
+    private String paymentMessageCompressed;
+    private String paymentMessageEncoded;
+    private String paymentMessageCompressedEncoded;
+    private String paymentMessageEncodedCompressed;
 
     public PaymentProcessor(String accountNumber, String financialInstitutionIdentifier, String financialInstitutionName, String amount){
         try {

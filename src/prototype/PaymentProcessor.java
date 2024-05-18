@@ -4,7 +4,7 @@ package prototype;
 import prototype.dto.payment.Payment;
 
 public class PaymentProcessor {
-    Payment payment;
+    private Payment payment;
 
     public PaymentProcessor(String accountNumber, String amount, String countryCode){
         try {

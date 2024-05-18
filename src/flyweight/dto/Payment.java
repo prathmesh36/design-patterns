@@ -1,13 +1,11 @@
-package abstractFactory.dto.payment;
+package flyweight.dto;
 
-abstract public class Payment {
+public class Payment {
     private String accountNumber;
     private String financialInstitutionIdentifier;
     private String financialInstitutionName;
     private String amount;
-    private PaymentType paymentType;
-
-    public abstract void setBankNameFromFinancialInstitutionIdentifier();
+    private CountryPaymentDataFlyWeight countryPaymentDataFlyWeight;
 
     public String getAmount() {
         return amount;
@@ -41,12 +39,12 @@ abstract public class Payment {
         this.financialInstitutionName = financialInstitutionName;
     }
 
-    public PaymentType getPaymentType() {
-        return paymentType;
+    public CountryPaymentDataFlyWeight getCountryPaymentDataFlyWeight() {
+        return countryPaymentDataFlyWeight;
     }
 
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
+    public void setCountryPaymentDataFlyWeight(CountryPaymentDataFlyWeight countryPaymentDataFlyWeight) {
+        this.countryPaymentDataFlyWeight = countryPaymentDataFlyWeight;
     }
 
     @Override
@@ -56,7 +54,6 @@ abstract public class Payment {
                 ", financialInstitutionIdentifier='" + financialInstitutionIdentifier + '\'' +
                 ", financialInstitutionName='" + financialInstitutionName + '\'' +
                 ", amount='" + amount + '\'' +
-                ", paymentType=" + paymentType.toString() +
                 '}';
     }
 }

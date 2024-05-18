@@ -4,7 +4,7 @@ import abstractFactory.dto.payment.Payment;
 import factory.PaymentFactory;
 
 public class PaymentProcessor {
-    Payment payment;
+    private Payment payment;
 
     public PaymentProcessor(String accountNumber, String financialInstitutionIdentifier, String amount, String countryCode, boolean isRTP){
         try {

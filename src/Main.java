@@ -7,6 +7,7 @@ import composite.dto.CompositeTransaction;
 import composite.dto.CreditTransaction;
 import composite.dto.DebitTransaction;
 import composite.dto.TransactionImpl;
+import facade.dto.FormattingOperations;
 
 import java.util.Arrays;
 import java.util.List;
@@ -67,6 +68,25 @@ public class Main {
             }
             case "Decorator" -> {
                 new decorator.PaymentProcessor("23789145", "021000021", "JPMC","14.23").displayPayment();
+            }
+            case "Facade" -> {
+                String jsonStrInstruction = "{\"accountNumber\":\"B23456789\",\"financialInstitutionIdentifier\":\"BOFA1234\",\"financialInstitutionName\":\"Bank of America\",\"amount\":\"100.00\"}";
+                new facade.PaymentProcessor(jsonStrInstruction, true, Arrays.asList());
+                new facade.PaymentProcessor(jsonStrInstruction, true, Arrays.asList(FormattingOperations.ENCODE));
+                new facade.PaymentProcessor(jsonStrInstruction, true, Arrays.asList(FormattingOperations.COMPRESS));
+                new facade.PaymentProcessor(jsonStrInstruction, true, Arrays.asList(FormattingOperations.ENCODE, FormattingOperations.COMPRESS));
+                new facade.PaymentProcessor(jsonStrInstruction, true, Arrays.asList(FormattingOperations.ENCODE, FormattingOperations.COMPRESS));
+                String xmlStrInstruction = "<Payment>\n" +
+                        "    <accountNumber>J23456789</accountNumber>\n" +
+                        "    <financialInstitutionIdentifier>JPM1234</financialInstitutionIdentifier>\n" +
+                        "    <financialInstitutionName>JPMC</financialInstitutionName>\n" +
+                        "    <amount>1000.00</amount>\n" +
+                        "</Payment>";
+                new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList());
+                new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.ENCODE));
+                new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.COMPRESS));
+                new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.COMPRESS, FormattingOperations.ENCODE));
+                new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.ENCODE, FormattingOperations.COMPRESS));
             }
         }
     }

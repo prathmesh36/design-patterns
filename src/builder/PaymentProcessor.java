@@ -5,7 +5,7 @@ import builder.dto.payment.Payment;
 
 
 public class PaymentProcessor {
-    Payment payment;
+    private Payment payment;
 
     public PaymentProcessor(String accountNumber, String financialInstitutionIdentifier, String amount, String countryCode){
         try {

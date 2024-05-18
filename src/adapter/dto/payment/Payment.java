@@ -1,10 +1,10 @@
 package adapter.dto.payment;
 
 public class Payment {
-    String accountNumber;
-    String financialInstitutionIdentifier;
-    String financialInstitutionName;
-    String amount;
+    private String accountNumber;
+    private String financialInstitutionIdentifier;
+    private String financialInstitutionName;
+    private String amount;
 
     public Payment(String accountNumber, String financialInstitutionIdentifier, String financialInstitutionName, String amount) {
         this.accountNumber = accountNumber;

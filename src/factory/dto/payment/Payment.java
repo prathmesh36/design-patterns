@@ -1,10 +1,10 @@
 package factory.dto.payment;
 
 abstract public class Payment {
-    String accountNumber;
-    String financialInstitutionIdentifier;
-    String financialInstitutionName;
-    String amount;
+    private String accountNumber;
+    private String financialInstitutionIdentifier;
+    private String financialInstitutionName;
+    private String amount;
 
     public abstract void setBankNameFromFinancialInstitutionIdentifier();
 

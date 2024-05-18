@@ -3,10 +3,10 @@ package builder.dto.payment;
 public class USPayment extends Payment {
 
     public USPayment(Builder builder){
-        setAccountNumber(builder.accountNumber);
-        setAmount(builder.amount);
-        setFinancialInstitutionIdentifier(builder.financialInstitutionIdentifier);
-        setBankNameFromFinancialInstitutionIdentifier(builder.financialInstitutionIdentifier);
+        setAccountNumber(builder.getAccountNumber());
+        setAmount(builder.getAmount());
+        setFinancialInstitutionIdentifier(builder.getFinancialInstitutionIdentifier());
+        setBankNameFromFinancialInstitutionIdentifier(builder.getFinancialInstitutionIdentifier());
     }
 
 

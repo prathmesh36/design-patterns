@@ -4,8 +4,8 @@ import java.util.List;
 
 public class CompositeTransaction extends TransactionImpl{
 
-    String referenceId;
-    List<TransactionImpl> transactions;
+    private String referenceId;
+    private List<TransactionImpl> transactions;
 
     public CompositeTransaction(String referenceId, List<TransactionImpl> transactions) {
         super(0);

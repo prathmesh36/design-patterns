@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class CommonProcessorImpl implements CommonProcessor {
-    Account account;
+    private Account account;
 
     public CommonProcessorImpl(Account account){
         this.account = account;
@@ -58,5 +58,13 @@ public class CommonProcessorImpl implements CommonProcessor {
     @Override
     public void showAccountDetails() {
         account.getReport();
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
