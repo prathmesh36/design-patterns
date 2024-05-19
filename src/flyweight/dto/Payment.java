@@ -7,6 +7,14 @@ public class Payment {
     private String amount;
     private CountryPaymentDataFlyWeight countryPaymentDataFlyWeight;
 
+    public Payment(String accountNumber, String financialInstitutionIdentifier, String financialInstitutionName, String amount, CountryPaymentDataFlyWeight countryPaymentDataFlyWeight) {
+        this.accountNumber = accountNumber;
+        this.financialInstitutionIdentifier = financialInstitutionIdentifier;
+        this.financialInstitutionName = financialInstitutionName;
+        this.amount = amount;
+        this.countryPaymentDataFlyWeight = countryPaymentDataFlyWeight;
+    }
+
     public String getAmount() {
         return amount;
     }
@@ -54,6 +62,9 @@ public class Payment {
                 ", financialInstitutionIdentifier='" + financialInstitutionIdentifier + '\'' +
                 ", financialInstitutionName='" + financialInstitutionName + '\'' +
                 ", amount='" + amount + '\'' +
+                ", amount='" + countryPaymentDataFlyWeight.getCountryCode() + '\'' +
+                ", amount='" + countryPaymentDataFlyWeight.getNonProcessingDays().toString() + '\'' +
+                ", amount='" + countryPaymentDataFlyWeight.getOtherCountryData() + '\'' +
                 '}';
     }
 }

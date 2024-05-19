@@ -8,6 +8,7 @@ import composite.dto.CreditTransaction;
 import composite.dto.DebitTransaction;
 import composite.dto.TransactionImpl;
 import facade.dto.FormattingOperations;
+import flyweight.BatchPaymentProcessor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -87,6 +88,14 @@ public class Main {
                 new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.COMPRESS));
                 new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.COMPRESS, FormattingOperations.ENCODE));
                 new facade.PaymentProcessor(xmlStrInstruction, false, Arrays.asList(FormattingOperations.ENCODE, FormattingOperations.COMPRESS));
+            }
+            case "FlyWeight" -> {
+                BatchPaymentProcessor batchPaymentProcessor = new flyweight.BatchPaymentProcessor();
+                batchPaymentProcessor.addPaymentInBatch("23789145", "021000021", "JPMC","14.23", "USA", Arrays.asList("04-JUL-2024", "01-MAY-2024"), "NA");
+                batchPaymentProcessor.addPaymentInBatch("23789775", "021434002", "BOFA","1234.23", "USA", Arrays.asList("04-JUL-2024", "01-MAY-2024"), "NA");
+                batchPaymentProcessor.addPaymentInBatch("35789145", "021035031", "HDFC","1674.23", "IND", Arrays.asList("05-SEP-2024", "15-NOV-2024"), "NA");
+                batchPaymentProcessor.addPaymentInBatch("35789365", "021634011", "AXIS","5.23", "IND", Arrays.asList("05-SEP-2024", "15-NOV-2024"), "NA");
+                batchPaymentProcessor.displayPayment();
             }
         }
     }
