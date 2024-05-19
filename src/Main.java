@@ -9,6 +9,7 @@ import composite.dto.DebitTransaction;
 import composite.dto.TransactionImpl;
 import facade.dto.FormattingOperations;
 import flyweight.BatchPaymentProcessor;
+import proxy.dto.Payment;
 
 import java.util.Arrays;
 import java.util.List;
@@ -96,6 +97,9 @@ public class Main {
                 batchPaymentProcessor.addPaymentInBatch("35789145", "021035031", "HDFC","1674.23", "IND", Arrays.asList("05-SEP-2024", "15-NOV-2024"), "NA");
                 batchPaymentProcessor.addPaymentInBatch("35789365", "021634011", "AXIS","5.23", "IND", Arrays.asList("05-SEP-2024", "15-NOV-2024"), "NA");
                 batchPaymentProcessor.displayPayment();
+            }
+            case "Proxy" ->{
+                new proxy.PaymentProcessor(new Payment("23789145", "021000021", "JPMC","14.23")).publishPayment();
             }
         }
     }
