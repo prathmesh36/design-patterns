@@ -9,7 +9,6 @@ import composite.dto.DebitTransaction;
 import composite.dto.TransactionImpl;
 import facade.dto.FormattingOperations;
 import flyweight.BatchPaymentProcessor;
-import proxy.dto.Payment;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +16,10 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+        if(args.length == 0){
+            System.out.println("No arguments passed");
+        }
+
         switch (args[0]) {
             case "Factory" -> {
                 new factory.PaymentProcessor("23789145", "021000021", "14.23", "US").displayPayment();
@@ -98,8 +101,12 @@ public class Main {
                 batchPaymentProcessor.addPaymentInBatch("35789365", "021634011", "AXIS","5.23", "IND", Arrays.asList("05-SEP-2024", "15-NOV-2024"), "NA");
                 batchPaymentProcessor.displayPayment();
             }
-            case "Proxy" ->{
-                new proxy.PaymentProcessor(new Payment("23789145", "021000021", "JPMC","14.23")).publishPayment();
+            case "Proxy" -> {
+                new proxy.PaymentProcessor(new proxy.dto.Payment("23789145", "021000021", "JPMC","14.23")).publishPayment();
+            }
+            case "Strategy" -> {
+                new strategy.PaymentProcessor().displayPayment(new strategy.dto.Payment("23789145", "021000021", "JPMC","14.23"), "XML");
+                new strategy.PaymentProcessor().displayPayment(new strategy.dto.Payment("23789145", "021000021", "JPMC","14.23"), "JSON");
             }
         }
     }
