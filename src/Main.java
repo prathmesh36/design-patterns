@@ -108,6 +108,9 @@ public class Main {
                 new strategy.PaymentProcessor().displayPayment(new strategy.dto.Payment("23789145", "021000021", "JPMC","14.23"), "XML");
                 new strategy.PaymentProcessor().displayPayment(new strategy.dto.Payment("23789145", "021000021", "JPMC","14.23"), "JSON");
             }
+            case "ChainOfResponsibility" -> {
+                new chainOfResponsibility.PaymentProcessor().processPayment("3378924521", "SBIN1234", "1500.00");
+            }
         }
     }
 }
