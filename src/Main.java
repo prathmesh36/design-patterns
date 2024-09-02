@@ -111,6 +111,9 @@ public class Main {
             case "ChainOfResponsibility" -> {
                 new chainOfResponsibility.PaymentProcessor().processPayment("3378924521", "SBIN1234", "1500.00");
             }
+            case "Iterator" -> {
+                new iterator.PaymentProcessor().processPayment();
+            }
         }
     }
 }
