@@ -114,6 +114,9 @@ public class Main {
             case "Iterator" -> {
                 new iterator.PaymentProcessor().processPayment();
             }
+            case "Observer" -> {
+                new observer.PaymentProcessor().process("3378924521", "SBIN1234", "1500.00");
+            }
         }
     }
 }
