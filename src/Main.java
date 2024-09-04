@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         if(args.length == 0){
             System.out.println("No arguments passed");
         }
@@ -116,6 +116,10 @@ public class Main {
             }
             case "Observer" -> {
                 new observer.PaymentProcessor().process("3378924521", "SBIN1234", "1500.00");
+            }
+            case "Command" -> {
+                new command.PaymentProcessor("23789145", "021000021", "14.23", "US").process();
+                new command.PaymentProcessor("3378924521", "SBIN1234", "1500.00", "IND").process();
             }
         }
     }
