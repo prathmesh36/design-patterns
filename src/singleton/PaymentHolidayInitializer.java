@@ -10,9 +10,8 @@ public class PaymentHolidayInitializer {
 
     public PaymentHolidayInitializer(Map<String, List<String>> holidaysByCountry){
         try {
-            PaymentHolidays paymentHolidays = new PaymentHolidays();
-            paymentHolidays.setHolidaysByCountry(holidaysByCountry);
-            this.paymentHolidaySingleton = PaymentHolidaySingleton.getInstance(paymentHolidays);
+
+            this.paymentHolidaySingleton = PaymentHolidaySingleton.getInstance(holidaysByCountry);
         } catch (Exception e) {
             System.out.println("Return Exception Code");
         }
