@@ -18,6 +18,11 @@ public class PaymentHolidaySingleton {
         this.paymentHolidays = paymentHolidays;
     }
 
+    private PaymentHolidaySingleton() {
+        PaymentHolidays paymentHolidays = new PaymentHolidays();
+        this.paymentHolidays = paymentHolidays;
+    }
+
     public static PaymentHolidaySingleton getInstance(Map<String, List<String>> holidaysByCountry) {
         // The approach taken here is called double-checked locking (DCL). It
         // exists to prevent race condition between multiple threads that may
@@ -41,6 +46,35 @@ public class PaymentHolidaySingleton {
             }
             return instance;
         }
+    }
+
+    public static PaymentHolidaySingleton getInstance() {
+        // The approach taken here is called double-checked locking (DCL). It
+        // exists to prevent race condition between multiple threads that may
+        // attempt to get singleton instance at the same time, creating separate
+        // instances as a result.
+        //
+        // It may seem that having the `result` variable here is completely
+        // pointless. There is, however, a very important caveat when
+        // implementing double-checked locking in Java, which is solved by
+        // introducing this local variable.
+        //
+        // You can read more info DCL issues in Java here:
+        // https://refactoring.guru/java-dcl-issue
+        PaymentHolidaySingleton result = instance;
+        if (result != null) {
+            return result;
+        }
+        synchronized (PaymentHolidaySingleton.class) {
+            if (instance == null) {
+                instance = new PaymentHolidaySingleton();
+            }
+            return instance;
+        }
+    }
+
+    public PaymentHolidays returnHolidays(){
+        return this.paymentHolidays;
     }
 
 }

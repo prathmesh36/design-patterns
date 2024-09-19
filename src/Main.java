@@ -9,6 +9,8 @@ import composite.dto.DebitTransaction;
 import composite.dto.TransactionImpl;
 import facade.dto.FormattingOperations;
 import flyweight.BatchPaymentProcessor;
+import singleton.PaymentHolidayInitializer;
+import singleton.PaymentHolidaySingleton;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,8 +42,17 @@ public class Main {
                 new prototype.PaymentProcessor("3378924521", "1500.00", "IND").displayPayment();
             }
             case "Singleton" -> {
-                new singleton.PaymentHolidayInitializer(Map.of("US", Arrays.asList("04-JUL-2024", "01-MAY-2024"),
-                        "IND",  Arrays.asList("05-SEP-2024", "15-NOV-2024"))).displayPaymentHolidays();
+                PaymentHolidayInitializer paymentHolidayInitializer = new PaymentHolidayInitializer();
+                PaymentHolidaySingleton paymentHolidaySingleton = paymentHolidayInitializer.getPaymentHolidaySingleton(Map.of("US", Arrays.asList("04-JUL-2024", "01-MAY-2024"),
+                        "IND",  Arrays.asList("05-SEP-2024", "15-NOV-2024")));
+                if (paymentHolidaySingleton != null) {
+                    paymentHolidayInitializer.displayPaymentHolidays(paymentHolidaySingleton);
+                }
+                PaymentHolidayInitializer paymentHolidayInitializer2 = new PaymentHolidayInitializer();
+                PaymentHolidaySingleton paymentHolidaySingleton2 = paymentHolidayInitializer.getPaymentHolidaySingleton();
+                if (paymentHolidaySingleton != null) {
+                    paymentHolidayInitializer2.displayPaymentHolidays(paymentHolidaySingleton2);
+                }
             }
             case "Adapter" -> {
                 String jsonStrInstruction = "{\"accountNumber\":\"B23456789\",\"financialInstitutionIdentifier\":\"BOFA1234\",\"financialInstitutionName\":\"Bank of America\",\"amount\":\"100.00\"}";
