@@ -10,7 +10,7 @@ public class PaymentHolidaySingleton {
     // correctly.
     private static volatile PaymentHolidaySingleton instance;
 
-    public PaymentHolidays paymentHolidays;
+    private PaymentHolidays paymentHolidays;
 
     private PaymentHolidaySingleton(Map<String, List<String>> holidaysByCountry) {
         PaymentHolidays paymentHolidays = new PaymentHolidays();
